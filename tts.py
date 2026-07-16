@@ -69,6 +69,8 @@ def synthesize_chunk(text: str, out_path: str) -> None:
         "reference_id": REFERENCE_ID,
         "format": AUDIO_FORMAT,
         "streaming": False,
+        "chunk_length": 200,
+        "max_new_tokens": 2048,
     }
     resp = requests.post(API_URL, json=payload, timeout=REQUEST_TIMEOUT)
     if resp.status_code != 200:

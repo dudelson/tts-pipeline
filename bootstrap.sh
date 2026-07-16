@@ -31,6 +31,9 @@ for f in config.json \
   curl -L -C - --retry 5 -o "$f" "$BASE/$f"
 done
 
+# copy reference voices
+cp -R "$HOME/tts-pipeline/references" "$HOME/fish-speech"
+
 # install server python deps (CUDA version 12.9)
 #echo "installing server deps"
 #cd "$HOME/fish-speech"
