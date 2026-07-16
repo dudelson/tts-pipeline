@@ -46,7 +46,7 @@ cp -R "$HOME/tts-pipeline/references" "$HOME/fish-speech"
 # start server
 echo "starting server"
 cd "$HOME/fish-speech"
-uv run tools/api_server.py \
+uv run --python 3.12 --extra cu126 -- tools/api_server.py \
   --llama-checkpoint-path checkpoints/s2-pro \
   --decoder-checkpoint-path checkpoints/s2-pro/codec.pth \
   --compile \
