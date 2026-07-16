@@ -3,8 +3,15 @@
 # this script is intended to work with vast.ai's Linux Desktop Container image
 
 echo '========================== TTS PIPELINE BOOTSTRAP START =========================='
+# SSH access fix
+# Fixes a vast.ai specific bug where SSH provisioning can sometimes be done by the wrong UID,
+# leading to no SSH access
 echo 'Debug: Info on SSH file ownership:'
 ls -l /root/.ssh
+echo 'Updating SSH file ownership to proactively mitigate possible access issues'
+chown root:root /root/.ssh /root/.ssh/authorized_keys
+chmod 700 /root/.ssh
+chmod 600 /root/.ssh/authorized_keys
 
 # install system-wide deps
 echo "installing system-wide deps"
