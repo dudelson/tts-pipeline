@@ -2,6 +2,10 @@
 
 # this script is intended to work with vast.ai's Linux Desktop Container image
 
+echo '========================== TTS PIPELINE BOOTSTRAP START =========================='
+echo 'Debug: Info on SSH file ownership:'
+ls -l /root/.ssh
+
 # install system-wide deps
 echo "installing system-wide deps"
 cd "$HOME"
